@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,15 +10,20 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "student")
 public class Student {
-	private int department_dept_id;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long std_id;
-	private String std_rollno;
+	
+	@Column(name = "std_rollno")
+	private String stdRollno;
+
 	private Long std_phone_no;
 	private String std_address;
 	private String std_name;
 	private String std_email;
+	private int department_dept_id;
+
 	private int user_id;
 
 	public Student(int department_dept_id, Long std_id, String std_rollno, Long std_phone_no, String std_address,
@@ -25,12 +31,20 @@ public class Student {
 		super();
 		this.department_dept_id = department_dept_id;
 		this.std_id = std_id;
-		this.std_rollno = std_rollno;
+		this.stdRollno = std_rollno;
 		this.std_phone_no = std_phone_no;
 		this.std_address = std_address;
 		this.std_name = std_name;
 		this.std_email = std_email;
 		this.user_id = user_id;
+	}
+
+	public String getStdRollno() {
+		return stdRollno;
+	}
+
+	public void setStdRollno(String stdRollno) {
+		this.stdRollno = stdRollno;
 	}
 
 	public int getUser_id() {
@@ -96,17 +110,17 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [department_dept_id=" + department_dept_id + ", std_id=" + std_id + ", std_rollno=" + std_rollno
+		return "Student [department_dept_id=" + department_dept_id + ", std_id=" + std_id + ", std_rollno=" + stdRollno
 				+ ", std_phone_no=" + std_phone_no + ", std_address=" + std_address + ", std_name=" + std_name
 				+ ", std_email=" + std_email + ", user_id=" + user_id + "]";
 	}
 
 	public String getStd_rollno() {
-		return std_rollno;
+		return stdRollno;
 	}
 
 	public void setStd_rollno(String std_rollno) {
-		this.std_rollno = std_rollno;
+		this.stdRollno = std_rollno;
 	}
 
 }

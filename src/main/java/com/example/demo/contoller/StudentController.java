@@ -1,8 +1,12 @@
 package com.example.demo.contoller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +23,25 @@ public class StudentController {
 	private StudentService studentService;
 
 	@PostMapping("/saveStudent")
-	public ResponseEntity<Student> saveStudent(@RequestBody Student s) {
+	public Student saveStudent(@RequestBody Student s) {
 		Student saveStudent = studentService.registerStudent(s);
-		return new ResponseEntity<>(saveStudent, HttpStatus.CREATED);
+		return saveStudent;
 	}
+	
+	@GetMapping("/getAllStudents")
+	public List<Student> getAllStudent(){
+		List<Student> getAllStudent = studentService.getAllStudents();
+		return getAllStudent;
+	}
+	
+	 @GetMapping("/rollno/{stdRollno}")
+	    public ResponseEntity<Student> getStudentByRollno(@PathVariable String stdRollno) {
+	        Student student = studentService.findByStdRollno(stdRollno);
+	        if (student != null) {
+	            return ResponseEntity.ok(student);
+	        } else {
+	            return ResponseEntity.notFound().build();
+	        }
+	    }
 
 }
