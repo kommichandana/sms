@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "student")
 public class Student {
-
+//test Student
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long std_id;
