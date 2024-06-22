@@ -12,38 +12,42 @@ public class Userrolemapping {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int mapping_id;
 	private int role_id;
-	private String role_name;
-
+	private int user_id;
+	public int getMapping_id() {
+		return mapping_id;
+	}
+	public void setMapping_id(int mapping_id) {
+		this.mapping_id = mapping_id;
+	}
 	public int getRole_id() {
 		return role_id;
 	}
-
 	public void setRole_id(int role_id) {
 		this.role_id = role_id;
 	}
-
-	public String getRole_name() {
-		return role_name;
+	public int getUser_id() {
+		return user_id;
 	}
-
-	public void setRole_name(String role_name) {
-		this.role_name = role_name;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
-
-	public Userrolemapping(int role_id, String role_name) {
+	public Userrolemapping(int mapping_id, int role_id, int user_id) {
 		super();
+		this.mapping_id = mapping_id;
 		this.role_id = role_id;
-		this.role_name = role_name;
+		this.user_id = user_id;
 	}
-
-	@Override
-	public String toString() {
-		return "Userrolemapping [role_id=" + role_id + ", role_name=" + role_name + "]";
-	}
-
 	public Userrolemapping() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "Userrolemapping [mapping_id=" + mapping_id + ", role_id=" + role_id + ", user_id=" + user_id + "]";
+	}
+
+
 
 }

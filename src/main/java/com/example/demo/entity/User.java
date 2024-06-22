@@ -13,8 +13,20 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
+	
+	private String user_name;
 	private String email_id;
 	private String password;
+
+	
+	
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
 
 	public int getUser_id() {
 		return user_id;
@@ -40,12 +52,15 @@ public class User {
 		this.password = password;
 	}
 
-	public User(int user_id, String email_id, String password) {
+	public User(int user_id, String user_name, String email_id, String password) {
 		super();
 		this.user_id = user_id;
+		this.user_name = user_name;
 		this.email_id = email_id;
 		this.password = password;
 	}
+
+	
 
 	public User() {
 		super();
@@ -54,7 +69,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", email_id=" + email_id + ", password=" + password + "]";
+		return "User [user_id=" + user_id + ", user_name=" + user_name + ", email_id=" + email_id + ", password="
+				+ password + "]";
 	}
 
 }

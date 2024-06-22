@@ -17,6 +17,15 @@ public class Faculty{
 	private String faculty_name;
 	private String faculty_designation;
 	private int dept_id;
+	private int user_id;
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 
 	public int getFaculty_id() {
 		return faculty_id;
@@ -50,17 +59,21 @@ public class Faculty{
 		this.dept_id = dept_id;
 	}
 
-	public Faculty(int faculty_id, String faculty_name, String faculty_designation, int dept_id) {
+	
+
+	@Override
+	public String toString() {
+		return "Faculty [faculty_id=" + faculty_id + ", faculty_name=" + faculty_name + ", faculty_designation="
+				+ faculty_designation + ", dept_id=" + dept_id + ", user_id=" + user_id + "]";
+	}
+
+	public Faculty(int faculty_id, String faculty_name, String faculty_designation, int dept_id, int user_id) {
 		super();
 		this.faculty_id = faculty_id;
 		this.faculty_name = faculty_name;
 		this.faculty_designation = faculty_designation;
 		this.dept_id = dept_id;
-	}
-
-	@Override
-	public String toString() {
-		return "Faculty [faculty_id=" + faculty_id + ", dept_id=" + dept_id + "]";
+		this.user_id = user_id;
 	}
 
 	public Faculty() {
