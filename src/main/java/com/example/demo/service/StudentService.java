@@ -8,14 +8,11 @@ import com.example.demo.repository.StudentRepository;
 
 @Service
 public class StudentService {
-	
+
 	@Autowired
 	private StudentRepository studentRepository;
-	
+
 	public Student registerStudent(Student student) {
 		return studentRepository.save(student);
-		
 	}
-	
-
 }
