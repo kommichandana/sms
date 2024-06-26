@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +17,14 @@ public class DepartmentService {
 	public Department registerDepartments(Department department) {
 		return departmentRepository.save(department);
 	}
+
+	public List<Department> getAllDepartments() {
+		return departmentRepository.findAll();
+	}
+	
+	public Department findByDepartmentId(Integer deptId) {
+		return departmentRepository.findbyId(deptId);
+	}
+
+
 }
